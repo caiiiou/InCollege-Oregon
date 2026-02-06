@@ -4,12 +4,12 @@
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-           SELECT UserLogin ASSIGN TO "../database/users.csv"
+           SELECT UserLogin ASSIGN TO "/workspace/database/users.csv"
                ORGANIZATION IS LINE SEQUENTIAL
                FILE STATUS IS WS-USERS-STAT.
-           SELECT TempPassword ASSIGN TO "../temp/password_input.txt"
+           SELECT TempPassword ASSIGN TO "/workspace/temp/password_input.txt"
                ORGANIZATION IS LINE SEQUENTIAL.
-           SELECT TempHash ASSIGN TO "../temp/password_hash.txt"
+           SELECT TempHash ASSIGN TO "/workspace/temp/password_hash.txt"
                ORGANIZATION IS LINE SEQUENTIAL.
 
        DATA DIVISION.
@@ -46,7 +46,7 @@
            CLOSE TempPassword
 
            MOVE SPACES TO WS-CMD
-           STRING "/bin/sh -c ""../scripts/hash_password.sh < ../temp/password_input.txt > ../temp/password_hash.txt"""
+           STRING "/bin/sh -c ""/workspace/scripts/hash_password.sh < /workspace/temp/password_input.txt > /workspace/temp/password_hash.txt"""
                DELIMITED BY SIZE INTO WS-CMD
            CALL "SYSTEM" USING WS-CMD
 

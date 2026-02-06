@@ -4,7 +4,7 @@
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-           SELECT UserLogin ASSIGN TO "../database/users.csv"
+           SELECT UserLogin ASSIGN TO "/workspace/database/users.csv"
                ORGANIZATION IS LINE SEQUENTIAL
                FILE STATUS IS WS-USERS-STAT.
 

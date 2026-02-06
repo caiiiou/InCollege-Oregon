@@ -63,6 +63,11 @@ To run automated test cases:
 ``` sh
 /test/automated-tests/input
 ```
+with number prepended to test name for example
+
+```
+01_descriptive-test-case.txt
+```
 
 2.  Run the automated test script:
 
@@ -76,3 +81,4 @@ To run automated test cases:
 /test/automated-tests/output
 ```
 Each test input produces a corresponding output file.
+Note: output files are deleted after running the build script

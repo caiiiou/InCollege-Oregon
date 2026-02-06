@@ -81,4 +81,4 @@ with number prepended to test name, for example:
 /test/automated-tests/output
 ```
 Each test input produces a corresponding output file.  
-Note: output files are deleted after running the build script
+Note: previous output files are deleted after running the testing script

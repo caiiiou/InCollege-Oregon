@@ -40,7 +40,7 @@ Open Visual Studio Code Dev Container
 From the `workspace` directory, run:
 
 ``` sh
-./scripts/build_and_run.sh
+./scripts/build.sh
 ```
 
 This script: - Compiles the COBOL source files - Removes old persistent
@@ -61,18 +61,18 @@ To run automated test cases:
 1.  Place test input files in:
 
 ``` sh
-    ./test/automated-tests/input
+./test/automated-tests/input
 ```
 
 2.  Run the automated test script:
 
-``` sh
+``` 
 ./scripts/run_automated_tests.sh
 ```
 
 3.  Output files will be generated in:
 
-``` sh
-    ./test/automated-tests/output
+``` 
+./test/automated-tests/output
 ```
 Each test input produces a corresponding output file.

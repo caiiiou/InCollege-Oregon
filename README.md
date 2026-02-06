@@ -63,7 +63,7 @@ To run automated test cases:
 ``` sh
 /test/automated-tests/input
 ```
-with number prepended to test name for example
+with number prepended to test name, for example:
 
 ```
 01_descriptive-test-case.txt

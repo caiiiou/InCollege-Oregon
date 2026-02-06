@@ -5,10 +5,10 @@ Welcome to InCollege!
 Enter your choice:
 1
 Enter username:
-dog
+bob
 Enter password:
 Caillou1!
-You have successfully logged in.
+Invalid credentials. Please try again.
 Welcome to InCollege!
 1. Log In
 2. Create New Account

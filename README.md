@@ -60,8 +60,9 @@ To run automated test cases:
 
 1.  Place test input files in:
 
-```
+``` sh
     ./test/automated-tests/input
+```
 
 2.  Run the automated test script:
 
@@ -71,7 +72,7 @@ To run automated test cases:
 
 3.  Output files will be generated in:
 
-```
+``` sh
     ./test/automated-tests/output
-
+```
 Each test input produces a corresponding output file.

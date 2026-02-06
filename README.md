@@ -46,10 +46,10 @@ files - Produces the executable
 
 ### Run
 
-After building, run the program from:
+After building, run the program from the `bin` directory:
 
 ``` sh
-/bin/InCollege
+./InCollege
 ```
 
 ## Automated Testing

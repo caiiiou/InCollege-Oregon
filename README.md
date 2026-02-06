@@ -32,10 +32,6 @@ COBOL-based login and account creation system.
 
 ## Build and Run
 
-Compile the COBOL source from the workspace root:
-
-```bash
-cobc -x -free src/InCollege.cob
 ```
 
 Then run the program:
@@ -43,11 +39,3 @@ Then run the program:
 ```bash
 ./InCollege
 ```
-
-Behavior notes:
-- The program reads menu choices, usernames, and passwords from `input/InCollege-Input.txt` using `READ InputFile`.
-- All terminal output is appended to `output/InCollege-Output.txt`.
-- The Job Search/Internships and "Find someone you know" options display "This feature is under construction.".
-- The create profile functionality works, and profiles are saved between runs.
-- The Learn-a-Skill options are present, but selecting any skill currently results in an "under construction" message.
-

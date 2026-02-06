@@ -12,9 +12,9 @@ using scripted input/output.
       InCollege
 
     scripts/
-      build_and_run.sh
+      build.sh
       run_automated_tests.sh
-      hash_pw.sh
+      hash_password.sh
       verify_password_files.sh
 
     database/

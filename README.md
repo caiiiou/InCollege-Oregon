@@ -35,10 +35,12 @@ using scripted input/output.
 
 ### Build
 
-From the `scripts` directory, run:
+Open Visual Studio Code Dev Container
+
+From the `workspace` directory, run:
 
 ``` sh
-./build_and_run.sh
+./scripts/build_and_run.sh
 ```
 
 This script: - Compiles the COBOL source files - Removes old persistent
@@ -46,10 +48,10 @@ files - Produces the executable
 
 ### Run
 
-After building, run the program from the `bin` directory:
+After building, run the program from the `workspace` directory:
 
 ``` sh
-./InCollege
+./bin/InCollege
 ```
 
 ## Automated Testing
@@ -58,10 +60,8 @@ To run automated test cases:
 
 1.  Place test input files in:
 
-```{=html}
-<!-- -->
 ```
-    /test/automated-tests/input
+    ./test/automated-tests/input
 
 2.  Run the automated test script:
 
@@ -71,9 +71,7 @@ To run automated test cases:
 
 3.  Output files will be generated in:
 
-```{=html}
-<!-- -->
 ```
-    /test/automated-tests/output
+    ./test/automated-tests/output
 
 Each test input produces a corresponding output file.

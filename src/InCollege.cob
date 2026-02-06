@@ -4,15 +4,15 @@
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-           SELECT InputFile ASSIGN TO "../input/InCollege-Input.txt"
+           SELECT InputFile ASSIGN TO "/workspace/input/InCollege-Input.txt"
                ORGANIZATION IS LINE SEQUENTIAL.
-           SELECT OutputFile ASSIGN TO "../output/Incollege-Output.txt"
+           SELECT OutputFile ASSIGN TO "/workspace/output/Incollege-Output.txt"
                ORGANIZATION IS LINE SEQUENTIAL.
-           SELECT UserLogin ASSIGN TO "../database/users.csv"
+           SELECT UserLogin ASSIGN TO "/workspace/database/users.csv"
                ORGANIZATION IS LINE SEQUENTIAL.
-           SELECT UserProfiles ASSIGN TO "../profiles.csv"
+           SELECT UserProfiles ASSIGN TO "/workspace/database/profiles.csv"
                ORGANIZATION IS LINE SEQUENTIAL.
-           SELECT TempPassword ASSIGN TO "../temp/password_input.txt"
+           SELECT TempPassword ASSIGN TO "/workspace/temp/password_input.txt"
                ORGANIZATION IS LINE SEQUENTIAL.
 
        DATA DIVISION.
@@ -41,6 +41,8 @@
 
        01  WS-USERNAME            PIC X(30).
        01  WS-PASSWORD            PIC X(30).
+       01  WS-USER-COUNT           PIC 9 VALUE 0.
+
 
        01  WS-VALID-PW            PIC X VALUE "N".
        01  WS-FOUND               PIC X VALUE "N".
@@ -99,13 +101,11 @@
            PERFORM PRINT
            PERFORM READ-USER-LINE
            MOVE FUNCTION TRIM(WS-LINE) TO WS-USERNAME
-           PERFORM NORMALIZE-USERNAME
 
            MOVE "Enter password:" TO WS-MSG
            PERFORM PRINT
            PERFORM READ-USER-LINE
            MOVE FUNCTION TRIM(WS-LINE) TO WS-PASSWORD
-           PERFORM NORMALIZE-PASSWORD
 
            CALL "USERS-LOOKUP" USING WS-USERNAME WS-FOUND WS-STORED-HASH
 
@@ -126,7 +126,17 @@
            END-IF
            .
 
-       CREATE-ACCOUNT-FLOW.
+CREATE-ACCOUNT-FLOW.
+           PERFORM COUNT-USERS
+
+           IF WS-USER-COUNT >= 5
+               MOVE "All permitted accounts have been created, please come back later"
+               TO WS-MSG
+               PERFORM PRINTLN
+               EXIT PARAGRAPH
+           END-IF
+
+    *> Continue normal account creation below
            MOVE SPACES TO WS-USERNAME WS-PASSWORD
            MOVE "N" TO WS-VALID-PW
            MOVE "N" TO WS-STATUS
@@ -135,13 +145,11 @@
            PERFORM PRINT
            PERFORM READ-USER-LINE
            MOVE FUNCTION TRIM(WS-LINE) TO WS-USERNAME
-           PERFORM NORMALIZE-USERNAME
 
            MOVE "Enter password:" TO WS-MSG
            PERFORM PRINT
            PERFORM READ-USER-LINE
            MOVE FUNCTION TRIM(WS-LINE) TO WS-PASSWORD
-           PERFORM NORMALIZE-PASSWORD
 
            CALL "PW-VALIDATE" USING WS-PASSWORD WS-VALID-PW
 
@@ -162,17 +170,19 @@
                PERFORM PRINTLN
            END-IF
            .
-
-       *> --- CRLF normalization (no PERFORM USING) ---
-       NORMALIZE-USERNAME.
-           INSPECT WS-USERNAME REPLACING ALL X"0D" BY SPACE
-           MOVE FUNCTION TRIM(WS-USERNAME) TO WS-USERNAME
+       COUNT-USERS.
+           MOVE 0 TO WS-USER-COUNT
+           OPEN INPUT UserLogin
+           PERFORM UNTIL 1 = 2
+           READ UserLogin
+               AT END
+           EXIT PERFORM
+           END-READ
+           ADD 1 TO WS-USER-COUNT
+           END-PERFORM
+           CLOSE UserLogin
            .
 
-       NORMALIZE-PASSWORD.
-           INSPECT WS-PASSWORD REPLACING ALL X"0D" BY SPACE
-           MOVE FUNCTION TRIM(WS-PASSWORD) TO WS-PASSWORD
-           .
 
        READ-USER-LINE.
            READ InputFile INTO WS-LINE

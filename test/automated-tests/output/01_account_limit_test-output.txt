@@ -1,0 +1,103 @@
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+Enter username:
+james
+Enter password:
+Pass123!
+Account created successfully.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+Enter username:
+bob
+Enter password:
+Pass123!
+Account created successfully.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+Enter username:
+larry
+Enter password:
+Pass123!
+Account created successfully.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+Enter username:
+george
+Enter password:
+Pass123!
+Account created successfully.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+Enter username:
+donald
+Enter password:
+Pass123!
+Account created successfully.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+All permitted accounts have been created, please come back later
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+jeffery
+Invalid option. Please try again.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+Pass123!
+Invalid option. Please try again.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+2
+All permitted accounts have been created, please come back later
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+
+Invalid option. Please try again.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+
+Invalid option. Please try again.
+Welcome to InCollege!
+1. Log In
+2. Create New Account
+9. Exit
+Enter your choice:
+Invalid option. Please try again.

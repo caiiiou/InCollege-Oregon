@@ -1,41 +1,84 @@
-# InCollege - Oregon
-
-## Quick Start (Docker)
-
-1. **Build the Docker image:**
-   ```sh
-   docker build -t incollege-cobol .
-   ```
-2. **Run the container and open a shell:**
-   ```sh
-   docker run -it --rm -v "$PWD":/workspace incollege-cobol
-   ```
-3. **Inside the container, build and run the program:**
-   ```sh
-   ./build_and_run.sh
-   ```
-
----
+# InCollege -- COBOL Login System
 
 ## Project Overview
-COBOL-based login and account creation system.
 
-## Files
-- `src/InCollege.cob` – main COBOL source
-- `test/Epic1-Test-Input/InCollege-Input.txt` – program input
-- `test/Epic1-Test-Output/InCollege-Output.txt` – program output
-- `build_and_run.sh` – script to build and run the program
-- `Dockerfile` – for containerized development
-- `users.dat` – user data file (created at runtime)
-- `profiles.dat` – profile data file (created at runtime)
-- `docs/`, `test/`, `input/`, `output/` – supporting files
+InCollege is a **COBOL-based login and account creation system**. It
+supports user authentication, account management, and automated testing
+using scripted input/output.
 
-## Build and Run
+## Project Structure
 
+    bin/
+      InCollege
+
+    scripts/
+      build.sh
+      run_automated_tests.sh
+      hash_password.sh
+      verify_password_files.sh
+
+    database/
+      users.csv
+
+    input/
+      InCollege-Input.txt
+
+    output/
+      Incollege-Output.txt
+
+    test/
+      automated-tests/
+        input/
+        output/
+
+## Building and Running
+
+### Build
+
+Open Visual Studio Code Dev Container
+
+From the `workspace` directory, run:
+
+``` sh
+./scripts/build.sh
 ```
 
-Then run the program:
+This script: - Compiles the COBOL source files - Removes old persistent
+files - Produces the executable
 
-```bash
-./InCollege
+### Run
+
+After building, run the program from the `workspace` directory:
+
+``` sh
+./bin/InCollege
 ```
+
+## Automated Testing
+
+To run automated test cases:
+
+1.  Place test input files in:
+
+``` sh
+/test/automated-tests/input
+```
+with number prepended to test name, for example:
+
+```
+01_descriptive-test-case.txt
+```
+
+2.  Run the automated test script:
+
+``` 
+./scripts/run_automated_tests.sh
+```
+
+3.  Output files will be generated in:
+
+``` 
+/test/automated-tests/output
+```
+Each test input produces a corresponding output file.  
+Note: previous output files and database files are deleted after running the testing script

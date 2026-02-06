@@ -4,7 +4,8 @@
 
 InCollege is a **COBOL-based login and account creation system**. It
 supports user authentication, account management, and automated testing
-using scripted input/output.
+using scripted input/output. Passwords are hashed using SHA-512-crypt via OpenSSL
+with a random salt.
 
 ## Project Structure
 
